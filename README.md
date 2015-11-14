@@ -1,4 +1,4 @@
-# OpenVPN on OpenWrt Barrier Breaker
+# OpenVPN on OpenWrt Chaos Calmer 15.05
 
 Steps stolen from [Logan Marchione's blog post](http://www.loganmarchione.com/2014/10/openwrt-with-openvpn-client-on-tp-link-tl-mr3020/).
 
@@ -12,6 +12,8 @@ Install packages:
 opkg update
 opkg install openvpn-openssl wget unzip
 ```
+
+On my system `openvpn-openssl` was already installed
 
 Create a new interface for the VPN:
 
@@ -105,7 +107,7 @@ ssh root@192.168.1.1
 Start the VPN:
 
 ```
-openvpn --cd /etc/openvpn --config /etc/openvpn/piageneric.ovpn --remote us-east.privateinternetaccess.com 1194
+openvpn --cd /etc/openvpn --config /etc/openvpn/piageneric.ovpn --remote uk-london.privateinternetaccess.com 1194
 ```
 
 Confirm that output looks something like this:
@@ -156,7 +158,7 @@ uci commit dhcp
 Run VPN at startup. Go to Luci web interface, go to System -> Startup and add this before the `exit 0`:
 
 ```
-openvpn --cd /etc/openvpn --config /etc/openvpn/piageneric.ovpn --remote us-east.privateinternetaccess.com 1194 &
+openvpn --cd /etc/openvpn --config /etc/openvpn/piageneric.ovpn --remote uk-london.privateinternetaccess.com 1194 &
 ```
 
 Reboot for DHCP and startup changes to take effect:
