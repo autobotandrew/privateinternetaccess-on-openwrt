@@ -10,10 +10,10 @@ Install packages:
 
 ```
 opkg update
-opkg install openvpn-openssl wget unzip
+opkg install wget unzip
 ```
 
-On my system `openvpn-openssl` was already installed
+On my system `openvpn-openssl` was already installed, so I didn't install it here.
 
 Create a new interface for the VPN:
 
